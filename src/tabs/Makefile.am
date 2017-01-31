@@ -1,0 +1,2 @@
+noinst_LTLIBRARIES= libtabs.la
+libtabs_la_SOURCES= ParentApp.cpp InstanceTab.cpp ClientInstanceTab.cpp ServerInstanceTab.cpp JarTab.cpp ModTab.cpp SettingsTab.cpp Terminal.cpp MinecraftUtils.cpp  MinecraftSessionManager.cpp MinecraftUpdater.cpp

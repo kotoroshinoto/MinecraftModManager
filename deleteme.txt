@@ -1,0 +1,41 @@
+ Volume in drive C has no label.
+ Volume Serial Number is 34F8-DFC8
+
+ Directory of C:\Users\mgooc\ClionProjects\MinecraftModManager
+
+01/31/2017  01:49 PM    <DIR>          .
+01/31/2017  01:49 PM    <DIR>          ..
+01/31/2017  01:43 PM             1,526 .autotools
+01/31/2017  01:43 PM            23,814 .cproject
+01/31/2017  01:43 PM             1,051 .project
+01/31/2017  01:43 PM    <DIR>          .settings
+01/31/2017  01:43 PM                 0 AUTHORS
+01/31/2017  01:43 PM    <DIR>          bat
+01/31/2017  01:43 PM    <DIR>          bin
+01/31/2017  01:43 PM    <DIR>          buildconf
+01/31/2017  01:43 PM                 0 ChangeLog
+01/31/2017  01:43 PM             2,414 configure.ac
+01/31/2017  01:43 PM            35,821 COPYING
+01/31/2017  01:49 PM                 0 deleteme.txt
+01/31/2017  01:43 PM    <DIR>          ico
+01/31/2017  01:43 PM            16,114 INSTALL
+01/31/2017  01:43 PM                 9 instances.conf
+01/31/2017  01:43 PM    <DIR>          lerp
+01/31/2017  01:43 PM           309,688 libtool
+01/31/2017  01:43 PM                 0 log.txt
+01/31/2017  01:43 PM           293,341 ltmain.sh
+01/31/2017  01:43 PM    <DIR>          m4
+01/31/2017  01:43 PM                80 Makefile.am
+01/31/2017  01:43 PM               589 MinecraftModMan.conf
+01/31/2017  01:43 PM    <DIR>          multimc_java_launcher
+01/31/2017  01:43 PM    <DIR>          multimc_new_launcher
+01/31/2017  01:43 PM                 0 NEWS
+01/31/2017  01:43 PM                 0 README
+01/31/2017  01:43 PM                55 resource.rc
+01/31/2017  01:43 PM    <DIR>          src
+01/31/2017  01:43 PM         1,263,446 WxWizFrame.fbp
+01/31/2017  01:43 PM             6,425 WxWizFrame.fbp.bak
+01/31/2017  01:43 PM    <DIR>          XERCES_SRC_BACKUP
+01/31/2017  01:43 PM    <DIR>          xpm
+              20 File(s)      1,954,373 bytes
+              14 Dir(s)  1,620,338,380,800 bytes free
