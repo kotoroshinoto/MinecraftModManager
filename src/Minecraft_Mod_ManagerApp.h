@@ -9,7 +9,8 @@
 
 #ifndef MINECRAFT_MOD_MANAGERAPP_H
 #define MINECRAFT_MOD_MANAGERAPP_H
-
+#include <winsock2.h>
+#include <windows.h>
 #include <wx/app.h>
 
 //*

@@ -7,10 +7,14 @@
 
 #ifndef PARENTAPP_H_
 #define PARENTAPP_H_
+#ifndef UNICODE
 #define UNICODE
+#endif
+#ifndef _UNICODE
 #define _UNICODE
+#endif
 #include "types.h"
-#include "src/GUI/GUIFrame.h"
+#include "../GUI/GUIFrame.h"
 #include "ModTab.h"
 #include "ClientInstanceTab.h"
 #include "ServerInstanceTab.h"

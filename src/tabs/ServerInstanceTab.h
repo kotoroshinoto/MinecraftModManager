@@ -7,8 +7,12 @@
 
 #ifndef SERVERINSTANCETAB_H_
 #define SERVERINSTANCETAB_H_
+#ifndef UNICODE
 #define UNICODE
+#endif
+#ifndef _UNICODE
 #define _UNICODE
+#endif
 #include "types.h"
 #include "ParentApp.h"
 #include "InstanceTab.h"

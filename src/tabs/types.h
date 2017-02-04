@@ -7,6 +7,10 @@
 
 #ifndef TYPES_H_
 #define TYPES_H_
+#ifdef __WIN32__
+#include <winsock2.h>
+#include <windows.h>
+#endif /*__WIN32__*/
 class GUIFrame;
 struct ClientInstanceTab;
 struct InstanceTab;

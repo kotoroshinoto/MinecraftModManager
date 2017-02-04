@@ -4,7 +4,8 @@
 //
 // PLEASE DO "NOT" EDIT THIS FILE!
 ///////////////////////////////////////////////////////////////////////////
-
+#include <winsock2.h>
+#include <windows.h>
 #include "wx/wxprec.h"
 
 #ifdef __BORLANDC__

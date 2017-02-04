@@ -1,4 +1,5 @@
-#include <GUIFrame.h>
+#include "GUIFrame.h"
+
 void GUIFrame::purge_files_checked(wxCommandEvent&){
 	if(this->parent_app->client_tab->clientbuttonsection->check_purgefiles->IsChecked())
 	{

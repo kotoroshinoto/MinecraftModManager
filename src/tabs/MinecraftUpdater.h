@@ -7,9 +7,15 @@
 
 #ifndef MINECRAFTUPDATER_H_
 #define MINECRAFTUPDATER_H_
+#ifndef UNICODE
 #define UNICODE
+#endif
+#ifndef _UNICODE
 #define _UNICODE
+#endif
 //#define CURL_STATICLIB
+#include <winsock2.h>
+#include <windows.h>
 #include <cstdio>
 #include <vector>
 #include <memory>

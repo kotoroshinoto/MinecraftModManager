@@ -7,7 +7,8 @@
 
 #ifndef __GUIFrame__
 #define __GUIFrame__
-
+#include <winsock2.h>
+#include <windows.h>
 #include <wx/string.h>
 #include <wx/button.h>
 #include <wx/gdicmn.h>

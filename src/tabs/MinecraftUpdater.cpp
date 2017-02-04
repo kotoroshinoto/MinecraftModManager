@@ -115,7 +115,7 @@ bool MinecraftUpdater::UnzipNatives(wxFileName& natives)
 	bool ret = true;
 	bool somethingdone=false;
 	//wxFileSystem fs;
-	std::auto_ptr<wxZipEntry> entry(new wxZipEntry());
+	std::unique_ptr<wxZipEntry> entry(new wxZipEntry());
 	std::wcout<<"attempting to extract \n"<< natives.GetFullPath() << "\n as a zip file to location: \n"<< destpath.GetFullPath() <<std::endl;
 	do {
 
@@ -182,7 +182,7 @@ MinecraftFileList& MinecraftUpdater::GetFileList(){
 
 bool MinecraftUpdater::ObtainFileList(){
 	XML_Handler handler;
-	std::auto_ptr<XMLEntity> page(handler.ParsePage(MinecraftUpdater::updatesite));
+	std::unique_ptr<XMLEntity> page(handler.ParsePage(MinecraftUpdater::updatesite));
 	if(!page.get()){/*TODO report error condition*/ return false;}
 	//std::wcout<<page->GetContainedXMLText()<<std::endl;
 	XMLEntity *listbucket=NULL;

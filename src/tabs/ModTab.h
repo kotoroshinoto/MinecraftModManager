@@ -7,10 +7,15 @@
 
 #ifndef MODTAB_H_
 #define MODTAB_H_
+#ifndef UNICODE
 #define UNICODE
+#endif
+#ifndef _UNICODE
 #define _UNICODE
+#endif
 #include "types.h"
 #include "ParentApp.h"
+#include <vector>
 struct ModTab {
 	ModTab(bool,ParentApp*);
 	virtual ~ModTab();

@@ -7,8 +7,14 @@
 
 #ifndef JARTAB_H_
 #define JARTAB_H_
+#ifndef UNICODE
 #define UNICODE
+#endif
+#ifndef _UNICODE
 #define _UNICODE
+#endif
+#include <winsock2.h>
+#include <windows.h>
 #include "types.h"
 #include "ParentApp.h"
 #include "MinecraftUtils.h"

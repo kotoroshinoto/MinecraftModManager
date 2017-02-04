@@ -7,8 +7,12 @@
 
 #ifndef SETTINGSTAB_H_
 #define SETTINGSTAB_H_
+#ifndef UNICODE
 #define UNICODE
+#endif
+#ifndef _UNICODE
 #define _UNICODE
+#endif
 #include "types.h"
 #include "ParentApp.h"
 #include <wx/app.h>

@@ -7,15 +7,21 @@
 
 #ifndef TABS_H_
 #define TABS_H_
+#ifndef UNICODE
 #define UNICODE
+#endif
+#ifndef _UNICODE
 #define _UNICODE
+#endif
+#include <winsock2.h>
+#include <windows.h>
 #include "types.h"
 struct InstanceTab;
 #include "ParentApp.h"
 #include "JarTab.h"
 #include "SettingsTab.h"
 #include "MinecraftUtils.h"
-#include "src/GUI/GUIFrame.h"
+#include "../GUI/GUIFrame.h"
 #include <wx/radiobut.h>
 #include <wx/listctrl.h>
 #include <wx/textctrl.h>

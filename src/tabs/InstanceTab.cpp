@@ -486,8 +486,8 @@ void InstanceTab::EditTab::RebuildJar()
     wxFileName sourcejar,destjar=currentEditedInstance,modpath;
     std::vector<wxFileName> modfiles;//original jar is modfiles[0]
     std::vector<wxArrayString> allEntries;//each list of entries refers back to a modfile
-    std::auto_ptr<wxZipInputStream> zipin;
-    std::auto_ptr<wxZipEntry> entry;
+	std::unique_ptr<wxZipInputStream> zipin;
+	std::unique_ptr<wxZipEntry> entry;
     wxString jarversion,jarname;
     std::vector<wxArrayString>& modlist=(this->jarmods->edit);
     //wxFFileInputStream* istr;
@@ -544,7 +544,7 @@ void InstanceTab::EditTab::RebuildJar()
     }
     wxFFileOutputStream out(destjar.GetFullPath());
     wxZipOutputStream zipout(out);
-    std::auto_ptr<wxFFileInputStream> in;
+	std::unique_ptr<wxFFileInputStream> in;
     //Need to scan input files to get a listing of which wxZipEntries will be used from which files to create the final output
     wxArrayString arr;
     for(size_t i=0; i<modfiles.size(); ++i)
