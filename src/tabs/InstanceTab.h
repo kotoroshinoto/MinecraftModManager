@@ -13,8 +13,10 @@
 #ifndef _UNICODE
 #define _UNICODE
 #endif
+#ifdef _WIN32
 #include <winsock2.h>
 #include <windows.h>
+#endif
 #include "types.h"
 struct InstanceTab;
 #include "ParentApp.h"

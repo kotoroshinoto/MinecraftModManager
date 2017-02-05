@@ -7,7 +7,7 @@
 
 #ifndef TYPES_H_
 #define TYPES_H_
-#ifdef __WIN32__
+#ifdef _WIN32
 #include <winsock2.h>
 #include <windows.h>
 #endif /*__WIN32__*/

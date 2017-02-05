@@ -14,8 +14,10 @@
 #define _UNICODE
 #endif
 //#define CURL_STATICLIB
+#ifdef _WIN32
 #include <winsock2.h>
 #include <windows.h>
+#endif
 #include <cstdio>
 #include <vector>
 #include <memory>

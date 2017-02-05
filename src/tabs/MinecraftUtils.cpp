@@ -5,6 +5,9 @@
  *      Author: mgooch
  */
 #include "MinecraftUtils.h"
+
+//TODO change this so that it uses wxXmlDocument class instead
+
 void MinecraftUtils::UpdateList(wxListCtrl* list,wxArrayString& data)
 {
 	list->DeleteAllItems();
