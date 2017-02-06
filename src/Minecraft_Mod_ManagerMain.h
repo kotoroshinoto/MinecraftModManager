@@ -9,13 +9,15 @@
 
 #ifndef MINECRAFT_MOD_MANAGERMAIN_H
 #define MINECRAFT_MOD_MANAGERMAIN_H
+//STL imports
+#ifdef _WIN32
 #include <winsock2.h>
 #include <windows.h>
-
-
-#include "Minecraft_Mod_ManagerApp.h"
+#endif
+//wx widgets imports
 #include <wx/msgdlg.h>
-
+//project imports
+#include "Minecraft_Mod_ManagerApp.h"
 #include "GUI/GUIFrame.h"
 
 class Minecraft_Mod_ManagerFrame: public GUIFrame

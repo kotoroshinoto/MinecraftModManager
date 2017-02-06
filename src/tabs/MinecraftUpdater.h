@@ -14,6 +14,7 @@
 #define _UNICODE
 #endif
 //#define CURL_STATICLIB
+//STL imports
 #ifdef _WIN32
 #include <winsock2.h>
 #include <windows.h>
@@ -22,19 +23,20 @@
 #include <vector>
 #include <memory>
 #include <utility>
-#include <wx/string.h>
-#include <wx/filename.h>
-#include <wx/utils.h>
-#include <wx/log.h>
 #include <iostream>
 #include <cstring>
 #include <string>
 #include <sstream>
+#include <stack>
+//WX Widgets imports
+#include <wx/string.h>
+#include <wx/filename.h>
+#include <wx/utils.h>
+#include <wx/log.h>
 #include <wx/zipstrm.h>
 #include <wx/wfstream.h>
+//Project imports
 #include "MinecraftUtils.h"
-#include <stack>
-
 class MinecraftFile{
 public:
 	wxString path;

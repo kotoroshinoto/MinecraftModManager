@@ -13,21 +13,26 @@
 #ifndef _UNICODE
 #define _UNICODE
 #endif
+//STL imports
 #ifdef _WIN32
 #include <winsock2.h>
 #include <windows.h>
 #endif
-#include "types.h"
-#include <curl/curl.h>
+
 #include <vector>
+#include <map>
+//WX Widgets imports
 #include <wx/listctrl.h>
 #include <wx/filename.h>
 #include <wx/string.h>
 #include <wx/arrstr.h>
 #include <wx/textfile.h>
+//library imports
+//#include <expat.h>
+//#include <curl/curl.h>
+//Project Imports
 #include "MinecraftUpdater.h"
-#include <map>
-#include <expat.h>
+#include "types.h"
 struct XMLEntity{
 	XMLEntity(XMLEntity* parent);
 	~XMLEntity();
