@@ -86,3 +86,6 @@ target_link_libraries(MinecraftModManager ${requiredlibs})
 
 add_executable(wxURL-test wxURL_test.cpp)
 target_link_libraries(wxURL-test ${wxWidgets_LIBRARIES} shlwapi version)
+
+add_executable(wxURL-Download-test wxURL_DownloadTest.cpp)
+target_link_libraries(wxURL-Download-test ${wxWidgets_LIBRARIES} shlwapi version)
