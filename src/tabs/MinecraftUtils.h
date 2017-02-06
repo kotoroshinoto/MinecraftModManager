@@ -27,36 +27,36 @@
 #include <wx/string.h>
 #include <wx/arrstr.h>
 #include <wx/textfile.h>
+#include <wx/wxprec.h>
+#include <wx/string.h>
+#include <wx/url.h>
+#include <wx/stream.h>
+#include <wx/stdstream.h>
+#include <wx/ffile.h>
+#include <wx/wfstream.h>
+#include <wx/app.h>
+#include <wx/xml/xml.h>
+#include <wx/sstream.h>
+#include <wx/protocol/http.h>
+
 //library imports
 //#include <expat.h>
 //#include <curl/curl.h>
+
+struct MCraftXmlContents;
+class MinecraftUtils;
 //Project Imports
 #include "MinecraftUpdater.h"
 #include "types.h"
-struct XMLEntity{
-	XMLEntity(XMLEntity* parent);
-	~XMLEntity();
-	bool istag;
-	wxString text;//if ISTAG==true text is tag name; otherwise is text content
-	std::vector<XMLEntity*> children;
-	XMLEntity* parent;
-	std::map<wxString,wxString> attrs;
-	wxString GetContainedXMLText();
-};
 
-class XML_Handler{
-public:
-	XMLEntity* ParsePage(wxString& URL);
-	XML_Handler();
-	~XML_Handler();
-private:
-	long eventcnt;
-	long depth;
-	XMLEntity* currentpage;
-	XMLEntity* ptr;
-	static void start_hndl(void *userdata,const XML_Char * s, const XML_Char **attr);
-	static void end_hndl(void *userdata, const XML_Char  *s);
-	static void char_hndl(void *userdata, const XML_Char  *txt, int txtlen);
+struct MCraftXmlContents{
+	MCraftXmlContents(wxXmlNode * contentnode);
+	wxString Key;
+	wxString LastModified;
+	wxString ETag;
+	wxString Size;
+	wxString StorageClass;
+	wxString toString();
 };
 
 class MinecraftUtils{
@@ -68,8 +68,9 @@ public:
 	static bool WriteNColFile(wxFileName& path, std::vector<wxArrayString>& data,size_t cols);
 	static bool Write1ColFile(wxFileName& path, wxArrayString& data);
 	static size_t get_string_from_curl(char *ptr, size_t size, size_t nmemb,void *userdata);
-	static bool ConfirmFile(wxString& parentpath,wxFileName& file,wxString& etag);
-	static bool GetPageContent(wxString& URL, std::string& page);
+//	static bool ConfirmFile(wxString& parentpath,wxFileName& file,wxString& etag);
+	static bool GetXMLPageContent(wxString& URL, std::vector<MCraftXmlContents> &page);
+	static bool GetPageContent(wxString& URL, std::string &page);
 	static bool GetFile(wxString& URL, wxFileName& dest);
 };
 

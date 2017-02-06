@@ -25,6 +25,7 @@ bool MinecraftSessionManager::EstablishSession() {
 	wxString pageinput;
 	std::string page;
 	wxString wxPage;
+	std::vector<MCraftXmlContents> mc_content;
 	pageinput = MinecraftSessionManager::loginsite;
 	pageinput += wxT("?user=") + this->session_info.user + wxT("&password=") + this->session_info.password + wxT("&version=") + LoginSession::version;
 	bool OK = MinecraftUtils::GetPageContent(pageinput, page);

@@ -12,10 +12,10 @@ wxString MinecraftUpdater::loginsite = "https://login.minecraft.net/";
 MinecraftUpdateLocation MinecraftUpdater::location_info;
 
 void MinecraftFileList::clear(){
-	this->istruncated=false;
+//	this->istruncated=false;
 	this->list.clear();
-	this->maxkeys=0;
-	this->name.Clear();
+//	this->maxkeys=0;
+//	this->name.Clear();
 }
 
 void MinecraftFile::clear(){
@@ -175,76 +175,26 @@ MinecraftFileList& MinecraftUpdater::GetFileList(){
 	return MinecraftUpdater::location_info.manifest.first;
 }
 
+MinecraftFile::MinecraftFile(MCraftXmlContents input){
+	this->path=input.Key;
+	this->lastmodified=input.LastModified;
+	this->etag=input.ETag;
+	this->storageclass=input.StorageClass;
+	wxStringInputStream sis(input.Size);
+	wxStdInputStream ss(sis);
+	ss >> this->size;
+}
+
 bool MinecraftUpdater::ObtainFileList(){
-	XML_Handler handler;
-	std::unique_ptr<XMLEntity> page(handler.ParsePage(MinecraftUpdater::updatesite));
-	if(!page.get()){/*TODO report error condition*/ return false;}
-	//std::wcout << page->GetContainedXMLText() << std::endl;
-	XMLEntity *listbucket=NULL;
-	//search by traversing by checking each node and THEN its children, in order recursively
-	std::wcout << "Crash Test A" << std::endl;
-	{
-		XMLEntity *ptr=NULL;
-		std::stack<XMLEntity*> nodes;
-		nodes.push(page.get());
-		while (!nodes.empty()){
-			ptr=nodes.top();
-			nodes.pop();
-			if(ptr->istag){//looking for a tag
-				//std::wcout << "node:" << ptr->text << std::endl;
-				if(ptr->text.IsSameAs(wxT("ListBucketResult"))){//with this name
-					listbucket=ptr;
-					break;
-				}
-				for(size_t i =ptr->children.size()-1;i<ptr->children.size();--i){//only tags have children, so this is inside the IF
-					//std::wcout << "i: " << i << std::endl;
-					nodes.push(ptr->children[i]);//push children onto stack in reverse order for searching.
-				}
-			}
+	std::vector<MCraftXmlContents> content_nodes;
+	bool success = MinecraftUtils::GetXMLPageContent(MinecraftUpdater::updatesite, content_nodes);
+	if(!success){return false;}
+	for(std::size_t i=0; i < content_nodes.size() ;i++){
+		{
+			MinecraftFile f(content_nodes[i]);
+			MinecraftUpdater::location_info.manifest.first.list.push_back(f);
 		}
 	}
-	std::wcout << "Crash Test B" << std::endl;
-	if(listbucket == NULL){
-		/*TODO report error condition*/
-		return false;
-	}
-	for(size_t i=0;i<listbucket->children.size();++i){
-		if(listbucket->children[i]->istag){//only interested in tags at this level
-			if(listbucket->children[i]->text.IsSameAs(wxT("Contents"))){
-				MinecraftFile f;
-				for(size_t j=0;j<listbucket->children[i]->children.size();++j){
-					if(listbucket->children[i]->children[j]->istag){
-						if(listbucket->children[i]->children[j]->text.IsSameAs(wxT("Key"))){
-							f.path=listbucket->children[i]->children[j]->children[0]->text;
-						} else if(listbucket->children[i]->children[j]->text.IsSameAs(wxT("LastModified"))){
-							f.lastmodified=listbucket->children[i]->children[j]->children[0]->text;
-						} else if(listbucket->children[i]->children[j]->text.IsSameAs(wxT("ETag"))){
-							f.etag=listbucket->children[i]->children[j]->children[0]->text;
-						} else if(listbucket->children[i]->children[j]->text.IsSameAs(wxT("Size"))){
-							if(listbucket->children[i]->children[j]->children[0]->text.ToULong(&(f.size))){
-								/*TODO report error condition, NaN*/
-							}
-						} else if(listbucket->children[i]->children[j]->text.IsSameAs(wxT("StorageClass"))){
-							f.storageclass=listbucket->children[i]->children[j]->children[0]->text;
-						} else {
-							/*TODO report unrecognized tag*/
-						}
-					}else{/*TODO report stray text error*/}
-				}
-				MinecraftUpdater::location_info.manifest.first.list.push_back(f);
-
-			} else if(listbucket->children[i]->text.IsSameAs(wxT("MaxKeys"))){
-				MinecraftUpdater::location_info.manifest.first.maxkeys;
-			} else if(listbucket->children[i]->text.IsSameAs(wxT("IsTruncated"))){
-				MinecraftUpdater::location_info.manifest.first.istruncated;
-			} else if(listbucket->children[i]->text.IsSameAs(wxT("Name"))){
-				MinecraftUpdater::location_info.manifest.first.name;
-			} else {
-				/*TODO report unrecognized tag*/
-			}
-		}else{/*TODO report stray text error*/}
-	}
-	std::wcout << "Crash Test C" << std::endl;
 	MinecraftUpdater::location_info.manifest.first.CleanList();
 	return true;
 }
@@ -323,7 +273,7 @@ bool MinecraftFileList::keepEntry(MinecraftFile& entry) {
 	return true;
 }
 
-MinecraftFileList::MinecraftFileList(): maxkeys(0),istruncated(false) {
+MinecraftFileList::MinecraftFileList()/*: maxkeys(0),istruncated(false)*/ {
 #if defined(__WINDOWS__)
 	this->OS=MinecraftFileList::ISWINDOWS;
 #elif defined(__APPLE__)

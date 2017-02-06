@@ -35,10 +35,18 @@
 #include <wx/log.h>
 #include <wx/zipstrm.h>
 #include <wx/wfstream.h>
+#include <wx/sstream.h>
+#include <wx/stdstream.h>
+class MinecraftFile;
+class MinecraftFileList;
+struct MinecraftUpdateLocation;
+class MinecraftUpdater;
 //Project imports
 #include "MinecraftUtils.h"
+
 class MinecraftFile{
 public:
+	MinecraftFile(MCraftXmlContents input);
 	wxString path;
 	wxString lastmodified;
 	wxString etag;
@@ -60,9 +68,9 @@ public:
 	void CleanList();
 	MinecraftFileList();
 	void clear();
-	wxString name;
-	unsigned long maxkeys;
-	bool istruncated;
+//	wxString name;
+//	unsigned long maxkeys;
+//	bool istruncated;
 	std::vector<MinecraftFile> list;
 private:
 	bool keepEntry(MinecraftFile& entry);
