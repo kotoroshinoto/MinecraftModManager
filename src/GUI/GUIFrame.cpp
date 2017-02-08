@@ -167,7 +167,7 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	client_terminal_sizer->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
 	client_terminal_term = new wxTextCtrl( client_select_tab, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE|wxTE_READONLY|wxTE_RICH2 );
-	client_terminal_term->SetFont( wxFont( 9, 74, 90, 90, false, wxT("Terminal") ) );
+	client_terminal_term->SetFont( wxFont( 9, wxFONTFAMILY_TELETYPE, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Terminal") ) );
 	client_terminal_term->SetForegroundColour( wxColour( 0, 255, 0 ) );
 	client_terminal_term->SetBackgroundColour( wxColour( 0, 0, 0 ) );
 	client_terminal_term->SetMinSize( wxSize( 450,440 ) );
@@ -175,7 +175,7 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	client_terminal_sizer->Add( client_terminal_term, wxGBPosition( 0, 0 ), wxGBSpan( 1, 1 ), wxALL, 5 );
 	
 	client_terminal_prompt = new wxTextCtrl( client_select_tab, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER|wxTE_RICH2 );
-	client_terminal_prompt->SetFont( wxFont( 9, 74, 90, 90, false, wxT("Terminal") ) );
+	client_terminal_prompt->SetFont( wxFont( 9, wxFONTFAMILY_TELETYPE, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Terminal") ) );
 	client_terminal_prompt->SetForegroundColour( wxColour( 0, 255, 0 ) );
 	client_terminal_prompt->SetBackgroundColour( wxColour( 0, 0, 0 ) );
 	client_terminal_prompt->SetMinSize( wxSize( 450,30 ) );
@@ -512,7 +512,7 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	server_terminal_sizer->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
 	server_terminal_term = new wxTextCtrl( server_select_tab, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE|wxTE_READONLY|wxTE_RICH2 );
-	server_terminal_term->SetFont( wxFont( 9, 74, 90, 90, false, wxT("Terminal") ) );
+	server_terminal_term->SetFont( wxFont( 9, wxFONTFAMILY_TELETYPE, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Terminal") ) );
 	server_terminal_term->SetForegroundColour( wxColour( 0, 255, 0 ) );
 	server_terminal_term->SetBackgroundColour( wxColour( 0, 0, 0 ) );
 	server_terminal_term->SetMinSize( wxSize( 450,440 ) );
@@ -520,7 +520,7 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	server_terminal_sizer->Add( server_terminal_term, wxGBPosition( 0, 0 ), wxGBSpan( 1, 1 ), wxALL, 5 );
 	
 	server_terminal_prompt = new wxTextCtrl( server_select_tab, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER|wxTE_RICH2 );
-	server_terminal_prompt->SetFont( wxFont( 9, 74, 90, 90, false, wxT("Terminal") ) );
+	server_terminal_prompt->SetFont( wxFont( 9, wxFONTFAMILY_TELETYPE, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Terminal") ) );
 	server_terminal_prompt->SetForegroundColour( wxColour( 0, 255, 0 ) );
 	server_terminal_prompt->SetBackgroundColour( wxColour( 0, 0, 0 ) );
 	server_terminal_prompt->SetMinSize( wxSize( 450,30 ) );
