@@ -33,18 +33,23 @@ include(CheckSymbolExists)
 
 
 if (WIN32)
+#    MESSAGE(INFO "\tON WINDOWS PLATFORM")
     set(MBEDTLS_PATH_HINT "C:/Program Files (x86)/mbed TLS")
     set(MBEDTLS_LIBPATH_HINT "C:/Program Files (x86)/mbed TLS/lib")
 endif()
 
 find_path(MBEDTLS_INCLUDE_DIRS NAMES mbedtls/ssl.h PATH_SUFFIXES include HINTS ${MBEDTLS_PATH_HINT} )
+#MESSAGE(INFO "\tmbed tls include directory: ${MBEDTLS_INCLUDE_DIRS}")
 
 # find the three mbedtls library
 find_library(MBEDTLS_LIBRARY NAMES mbedtls HINTS ${MBEDTLS_LIBPATH_HINT} )
+#MESSAGE(INFO "\tmbed tls lib: ${MBEDTLS_LIBRARY}")
 
 find_library(MBEDX509_LIBRARY NAMES mbedx509 HINTS ${MBEDTLS_LIBPATH_HINT})
+#MESSAGE(INFO "\tmbed tls x509 lib: ${MBEDX509_LIBRARY}")
 
 find_library(MBEDCRYPTO_LIBRARY NAMES mbedcrypto HINTS ${MBEDTLS_LIBPATH_HINT})
+#MESSAGE(INFO "\tmbed tls crypto lib: ${MBEDCRYPTO_LIBRARY}")
 
 # check we have a mbedTLS version 2 or above(all functions are prefixed mbedtls_)
 if(MBEDTLS_LIBRARY AND MBEDX509_LIBRARY AND MBEDCRYPTO_LIBRARY)
