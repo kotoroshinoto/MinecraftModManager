@@ -39,6 +39,23 @@ ELSE(wxWidgets_FOUND)
     MESSAGE(FATAL_ERROR "\tCould not find the wxWidgets library and development files.")
 ENDIF(wxWidgets_FOUND)
 
+
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
+#asdf
+
+# check for mbedtls (*REQUIRED*)
+find_package(MbedTLS REQUIRED)
+if(MBEDTLS_FOUND  AND  MBEDTLS_INCLUDE_DIR  AND  MBEDTLS_LIBRARIES)
+    add_definitions(-DHAVE_MBEDTLS)
+    include_directories(${MBEDTLS_INCLUDE_DIR})
+    set(EXTRA_LIBS ${EXTRA_LIBS} ${MBEDTLS_LIBRARIES})
+    set(_MBEDTLS_VERSION_ ${MBEDTLS_VERSION})
+    message("-- mbedTLS ${MBEDTLS_VERSION} found!")
+else()
+    return()
+endif()
+
 #FIND_PACKAGE(CURL)
 #IF(CURL_FOUND)
 #    INCLUDE_DIRECTORIES(${CURL_INCLUDE_DIRS})
